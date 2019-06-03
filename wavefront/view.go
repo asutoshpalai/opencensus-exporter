@@ -116,9 +116,7 @@ func makeCentroids(bounds []float64, agg *view.DistributionData) []histogram.Cen
 	for i, c := range counts {
 		var m float64
 		switch {
-		case c == 1:
-			m = agg.ExemplarsPerBucket[i].Value
-		case c > 1:
+		case c > 0:
 			switch i {
 			case 0:
 				m = mean2(agg.Min, float64(bounds[i]))
